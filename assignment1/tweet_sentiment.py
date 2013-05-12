@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 import sys
 import json
 
@@ -71,8 +71,9 @@ def main():
     	tweetwords = tweettext.split()
     	for tw_word in tweetwords:
     		#print tw_word
-    		if tw_word in sentiments:
-    			tweet.sentiment += sentiments[tw_word]
+    		word = tw_word.lower()
+    		if  word in sentiments:
+    			tweet.sentiment += sentiments[word]
     			#print tw_word + " " + str(sentiments[tw_word])
     	print str(float(tweet.sentiment))
 
