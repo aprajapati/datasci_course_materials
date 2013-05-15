@@ -26,12 +26,12 @@ class TweetLoader(object):
 		f = open(file_name)
 		for line in f:
 			json_data = json.loads(line)
-			if "delete" not in json_data:		
-				#skip all tweets in different language
-				if "lang" in json_data:
-					if json_data["lang"] != "en":
-						continue				
-				self.tweet_s_list.append( Tweet(json_data['created_at'],json_data['text'],json_data['id_str']))
+			if "delete" not in json_data:
+				if "entities" in json_data:		
+					hashtags = json_data['entities']['hashtags']
+					for hashtag in hashtags:
+						#skip all tweets in different language
+						self.tweet_s_list.append( Tweet(json_data['created_at'],hashtag['text'],json_data['id_str']))					
 		return self.tweet_s_list
 
 def loadtweets(file_name):
@@ -49,10 +49,9 @@ def main():
     	tweettext = tweet.text;
     	tweetwords = tweettext.split()
     	for tw_word in tweetwords:
-    		if tw_word[0] == '#':
-    			if tw_word not in hashtag:
-    				hashtag[tw_word] = 0
-    			hashtag[tw_word] += 1
+    		if tw_word not in hashtag:
+    			hashtag[tw_word] = 0
+    		hashtag[tw_word] += 1
 
 
     sorted_x = sorted(hashtag.iteritems(), key=operator.itemgetter(1), reverse=True)
