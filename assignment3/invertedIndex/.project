@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>invertedIndex</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.python.pydev.PyDevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.python.pydev.pythonNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>data</name>
+			<type>2</type>
+			<location>/home/aprajapati/introtodatasci/datasci_course_materials/assignment3/data</location>
+		</link>
+		<link>
+			<name>solutions</name>
+			<type>2</type>
+			<location>/home/aprajapati/introtodatasci/datasci_course_materials/assignment3/solutions</location>
+		</link>
+	</linkedResources>
+</projectDescription>

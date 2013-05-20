@@ -1,0 +1,8 @@
+INSTUPinvertedIndex.invertedIndex
+/home/aprajapati/introtodatasci/datasci_course_materials/assignment3/invertedIndex/invertedIndex.py
+INFOS:&&3|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0
+reducer=4
+mr=1
+mapper=3
+invertedIndex.invertedIndex=2
+main=5

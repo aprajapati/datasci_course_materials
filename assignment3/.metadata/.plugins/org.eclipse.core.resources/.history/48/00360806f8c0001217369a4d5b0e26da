@@ -1,0 +1,38 @@
+import MapReduce
+import json
+import sys
+
+mr = MapReduce.MapReduce()
+rows=4
+cols=4
+# Map function
+# mr - MapReduce object
+# data - json object formatted as a string
+def mapper(data):
+    matrix = data[0]
+    i = data[1]    
+    j = data[2]
+    value = data[3]
+    if matrix == 'a':
+        for n in range(cols):
+            mr.emit_intermediate((i,n), value)
+    else:
+        for n in range(rows):
+            mr.emit_intermediate((n,j), value)
+
+# Reduce function
+# mr - MapReduce object
+# key - key generated from map phse, associated to list_of_values
+# list_of_values - values generated from map phase, associated to key
+def reducer(key, list_of_values):
+    # output item (only for reducer)
+    mr.emit((key,sum(list_of_values)))
+    
+
+def main():
+    # Assumes first argument is a file of json objects formatted as strings, 
+    #one per line.    
+    mr.execute(open(sys.argv[1]), mapper, reducer)
+
+if __name__ == '__main__':
+    main()
